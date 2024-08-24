@@ -42,7 +42,7 @@ env:
     TIME_ZONE : America/Sao_Paulo
     SCHEDULE : "20 13 * * *"
     SCHEDULE_NAME : schedule_olist_etl
-    SERVICE_ACCOUNT_NAME : dataproc-big_query-account-workflow
+    SERVICE_ACCOUNT_NAME : account-dataproc_bq_workflow
     CUSTOM_ROLE : DataProcBigQueryWorkflowCustomRole
     STEP1_NAME : step_ingestion_orders
     STEP2_NAME : step_ingestion_order_items
