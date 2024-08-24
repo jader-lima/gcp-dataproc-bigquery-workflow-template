@@ -32,11 +32,7 @@ env:
     PYSPARK_INGESTION_SCRIPT: ingestion_csv_to_delta.py
     PYSPARK_ENRICHMENT_SCRIPT_ORDER_ITENS: order_order_items_to_bigquery.py
     SUBJECT: olist
-
-    SCHEMA_ORDER_ITEMS: order_status:STRING,order_id:STRING,order_item_id:STRING,customer_id:STRING,product_id:STRING,\
-    seller_id:STRING,order_purchase_timestamp:STRING,order_delivered_customer_date:STRING,order_estimated_delivery_date:STRING,\
-    price:FLOAT,freight_value:FLOAT,order_items_count:INTEGER,datePartition:DATE
-    TIME_PARTITION_FIELD=datePartition
+    TIME_PARTITION_FIELD: datePartition
 
     FILE1: orders
     FILE2: order_items
@@ -216,9 +212,11 @@ jobs:
         echo " contador $c "
         if [ $c == 0 ]; then
           echo "Creating table named : $table for Dataset ${{ env.BIGQUERY_DATASET}} " !
-          bq mk --schema ${{ env.SCHEMA_ORDER_ITEMS}} \
+          bq mk --table $TABLE_NAME_ORDER_ITEMS \
           --time_partitioning_field ${{ env.TIME_PARTITION_FIELD}} \
-          --table $TABLE_NAME_ORDER_ITEMS
+          ./scripts/bigquery_files/schemas/schemas/myschema.json 
+          
+          
         fi
 
   deploy-dataproc-workflow-template:
