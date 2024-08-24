@@ -1,6 +1,8 @@
 name: Deploy Dataproc WorkflowTemplate for big query ingestion and Create a Schedule to run it
 
 env:
+    REGION: us-east1
+    ZONE: us-east1-b
     DATAPROC_CLUSTER_NAME: dataproc-bigdata-multi-node-cluster
     DATAPROC_WORKER_TYPE: n2-standard-2
     DATAPROC_MASTER_TYPE: n2-standard-2
@@ -136,16 +138,10 @@ jobs:
     # Step to Upload the file to GCP Bucket - pyspark files
     - name: Upload pyspark files to Google Cloud Storage
       run: |-
-        TARGET=${{ env.BUCKET_BIGDATA_PYSPARK_FOLDER }}
-        BUCKET_PATH=${{ secrets.GCP_BUCKET_BIGDATA_FILES }}/${{ env.BUCKET_BIGDATA_PYSPARK_FOLDER }}
+        TARGET=${{ env.BUCKET_BIGDATA_SCRIPT_FOLDER}}/${{ env.BUCKET_BIGDATA_PYSPARK_FOLDER}}
+        BUCKET_PATH=${{ secrets.GCP_BUCKET_BIGDATA_FILES}}/${{ env.BUCKET_BIGDATA_SCRIPT_FOLDER}}/${{ env.BUCKET_BIGDATA_PYSPARK_FOLDER}}
         gsutil cp -r $TARGET gs://${BUCKET_PATH}
 
-    # Step to create dataproc cluster
-    - name: Upload pyspark files to Google Cloud Storage
-      run: |-
-        TARGET=${{ env.BUCKET_BIGDATA_PYSPARK_FOLDER }}
-        BUCKET_PATH=${{ secrets.GCP_BUCKET_BIGDATA_FILES }}/${{ env.BUCKET_BIGDATA_PYSPARK_FOLDER }}
-        gsutil cp -r $TARGET gs://${BUCKET_PATH}
 
   ###################
 
@@ -333,7 +329,7 @@ jobs:
               echo "Workflow Template : ${{ env.DATAPROC_WORKFLOW_NAME }} already has step : ${{ env.STEP3_NAME }} " ! 
             else
 
-              PYSPARK_SCRIPT_PATH=${{ secrets.$GCP_BUCKET_BIGDATA_FILES}}/${{ env.BUCKET_BIGDATA_SCRIPT_FOLDER}}/${{ env.BUCKET_BIGDATA_PYSPARK_FOLDER}}/${{ env.BUCKET_BIGDATA_PYSPARK_ENRICHMENT}}/${{ env.PYSPARK_ENRICHMENT_SCRIPT_ORDER_ITENS}}
+              PYSPARK_SCRIPT_PATH=${{ secrets.GCP_BUCKET_BIGDATA_FILES}}/${{ env.BUCKET_BIGDATA_SCRIPT_FOLDER}}/${{ env.BUCKET_BIGDATA_PYSPARK_FOLDER}}/${{ env.BUCKET_BIGDATA_PYSPARK_ENRICHMENT}}/${{ env.PYSPARK_ENRICHMENT_SCRIPT_ORDER_ITENS}}
               JARS_PATH=gs://${{ secrets.GCP_BUCKET_BIGDATA_FILES }}/${{ env.BUCKET_BIGDATA_JAR_FOLDER }}/${{ env.JAR_LIB1 }}
               JARS_PATH=${JARS_PATH},gs://${{ secrets.GCP_BUCKET_BIGDATA_FILES }}/${{ env.BUCKET_BIGDATA_JAR_FOLDER }}/${{ env.JAR_LIB2 }}
               BRONZE_ORDERS=${{ secrets.GCP_BUCKET_DATALAKE}}/${{ env.BRONZE_DATALAKE_FILES}}/${{ env.SUBJECT}}/${{ env.FILE1}}
