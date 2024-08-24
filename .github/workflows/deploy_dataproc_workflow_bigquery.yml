@@ -140,13 +140,6 @@ jobs:
         BUCKET_PATH=${{ secrets.GCP_BUCKET_BIGDATA_FILES }}/${{ env.BUCKET_BIGDATA_PYSPARK_FOLDER }}
         gsutil cp -r $TARGET gs://${BUCKET_PATH}
 
-    # Step to create dataproc cluster
-    - name: Upload pyspark files to Google Cloud Storage
-      run: |-
-        TARGET=${{ env.BUCKET_BIGDATA_PYSPARK_FOLDER }}
-        BUCKET_PATH=${{ secrets.GCP_BUCKET_BIGDATA_FILES }}/${{ env.BUCKET_BIGDATA_PYSPARK_FOLDER }}
-        gsutil cp -r $TARGET gs://${BUCKET_PATH}
-
   ###################
 
   deploy-bigquery-dataset-bigquery-tables:
