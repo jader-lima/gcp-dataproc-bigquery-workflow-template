@@ -136,9 +136,10 @@ jobs:
     # Step to Upload the file to GCP Bucket - pyspark files
     - name: Upload pyspark files to Google Cloud Storage
       run: |-
-        TARGET=${{ env.BUCKET_BIGDATA_PYSPARK_FOLDER }}
-        BUCKET_PATH=${{ secrets.GCP_BUCKET_BIGDATA_FILES }}/${{ env.BUCKET_BIGDATA_PYSPARK_FOLDER }}
+        TARGET=${{ env.BUCKET_BIGDATA_SCRIPT_FOLDER}}/${{ env.BUCKET_BIGDATA_PYSPARK_FOLDER}}
+        BUCKET_PATH=${{ secrets.GCP_BUCKET_BIGDATA_FILES}}/${{ env.BUCKET_BIGDATA_SCRIPT_FOLDER}}/${{ env.BUCKET_BIGDATA_PYSPARK_FOLDER}}
         gsutil cp -r $TARGET gs://${BUCKET_PATH}
+
 
   ###################
 
