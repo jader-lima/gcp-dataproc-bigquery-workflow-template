@@ -15,6 +15,7 @@ env:
     DATAPROC_MASTER_BOOT_DISK_TYPE: pd-balanced
     DATAPROC_WORKER_BOOT_DISK_TYPE: pd-balanced
     DATAPROC_COMPONENTS: JUPYTER
+    DATAPROC_WORKFLOW_NAME: departments_olist_order_items
     BIGQUERY_DATASET: olist
     BIGQUERY_TABLE_ORDER_ITEMS: order_items_report
     BRONZE_DATALAKE_FILES: bronze
@@ -235,7 +236,6 @@ jobs:
     - name: Configure Docker
       run: |-
         gcloud auth configure-docker
-
 
     - name: Create Dataproc Workflow
       run: |-  
