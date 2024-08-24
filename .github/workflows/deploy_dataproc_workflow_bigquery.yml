@@ -277,7 +277,7 @@ jobs:
             then \
               echo "Workflow Template : ${{ env.DATAPROC_WORKFLOW_NAME }} already has step : ${{ env.STEP1_NAME  }} " ! 
             else
-              PYSPARK_SCRIPT_PATH=${{ secrets.GCP_STORAGE_PREFIX$GCP_BUCKET_BIGDATA_FILES}}/${{ env.$BUCKET_BIGDATA_SCRIPT_FOLDER}}/${{ env.$BUCKET_BIGDATA_PYSPARK_FOLDER}}/${{ env.BUCKET_BIGDATA_PYSPARK_INGESTION}}/${{ env.PYSPARK_INGESTION_SCRIPT}}
+              PYSPARK_SCRIPT_PATH=${{ secrets.GCP_BUCKET_BIGDATA_FILES}}/${{ env.$BUCKET_BIGDATA_SCRIPT_FOLDER}}/${{ env.$BUCKET_BIGDATA_PYSPARK_FOLDER}}/${{ env.BUCKET_BIGDATA_PYSPARK_INGESTION}}/${{ env.PYSPARK_INGESTION_SCRIPT}}
               JARS_PATH=gs://${{ secrets.GCP_BUCKET_BIGDATA_FILES }}/${{ env.BUCKET_BIGDATA_JAR_FOLDER }}/${{ env.JAR_LIB1 }}
               JARS_PATH=${JARS_PATH},gs://${{ secrets.GCP_BUCKET_BIGDATA_FILES }}/${{ env.BUCKET_BIGDATA_JAR_FOLDER }}/${{ env.JAR_LIB2 }}
               TRANSIENT=${{ secrets.GCP_BUCKET_DATALAKE }}/${{ env.BUCKET_DATALAKE_FOLDER }}/${{ env.SUBJECT }}/${{ env.STEP1 }}
@@ -303,7 +303,7 @@ jobs:
             then \
               echo "Workflow Template : ${{ env.DATAPROC_WORKFLOW_NAME }} already has step : ${{ env.STEP2_NAME  }} " ! 
             else
-              PYSPARK_SCRIPT_PATH=${{ secrets.GCP_STORAGE_PREFIX$GCP_BUCKET_BIGDATA_FILES}}/${{ env.$BUCKET_BIGDATA_SCRIPT_FOLDER}}/${{ env.$BUCKET_BIGDATA_PYSPARK_FOLDER}}/${{ env.BUCKET_BIGDATA_PYSPARK_INGESTION}}/${{ env.PYSPARK_INGESTION_SCRIPT}}
+              PYSPARK_SCRIPT_PATH=${{ secrets.GCP_BUCKET_BIGDATA_FILES}}/${{ env.$BUCKET_BIGDATA_SCRIPT_FOLDER}}/${{ env.$BUCKET_BIGDATA_PYSPARK_FOLDER}}/${{ env.BUCKET_BIGDATA_PYSPARK_INGESTION}}/${{ env.PYSPARK_INGESTION_SCRIPT}}
               JARS_PATH=gs://${{ secrets.GCP_BUCKET_BIGDATA_FILES }}/${{ env.BUCKET_BIGDATA_JAR_FOLDER }}/${{ env.JAR_LIB1 }}
               JARS_PATH=${JARS_PATH},gs://${{ secrets.GCP_BUCKET_BIGDATA_FILES }}/${{ env.BUCKET_BIGDATA_JAR_FOLDER }}/${{ env.JAR_LIB2 }}
               TRANSIENT=${{ secrets.GCP_BUCKET_DATALAKE }}/${{ env.BUCKET_DATALAKE_FOLDER }}/${{ env.SUBJECT }}/${{ env.STEP2 }}
@@ -333,7 +333,7 @@ jobs:
               echo "Workflow Template : ${{ env.DATAPROC_WORKFLOW_NAME }} already has step : ${{ env.STEP3_NAME }} " ! 
             else
 
-              PYSPARK_SCRIPT_PATH=${{ secrets.GCP_STORAGE_PREFIX$GCP_BUCKET_BIGDATA_FILES}}/${{ env.$BUCKET_BIGDATA_SCRIPT_FOLDER}}/${{ env.$BUCKET_BIGDATA_PYSPARK_FOLDER}}/${{ env.BUCKET_BIGDATA_PYSPARK_ENRICHMENT}}/${{ env.PYSPARK_ENRICHMENT_SCRIPT_ORDER_ITENS}}
+              PYSPARK_SCRIPT_PATH=${{ secrets.$GCP_BUCKET_BIGDATA_FILES}}/${{ env.$BUCKET_BIGDATA_SCRIPT_FOLDER}}/${{ env.$BUCKET_BIGDATA_PYSPARK_FOLDER}}/${{ env.BUCKET_BIGDATA_PYSPARK_ENRICHMENT}}/${{ env.PYSPARK_ENRICHMENT_SCRIPT_ORDER_ITENS}}
               JARS_PATH=gs://${{ secrets.GCP_BUCKET_BIGDATA_FILES }}/${{ env.BUCKET_BIGDATA_JAR_FOLDER }}/${{ env.JAR_LIB1 }}
               JARS_PATH=${JARS_PATH},gs://${{ secrets.GCP_BUCKET_BIGDATA_FILES }}/${{ env.BUCKET_BIGDATA_JAR_FOLDER }}/${{ env.JAR_LIB2 }}
               BRONZE_ORDERS=${{ secrets.GCP_BUCKET_DATALAKE}}/${{ env.BRONZE_DATALAKE_FILES}}/${{ env.SUBJECT}}/${{ env.FILE1}}
