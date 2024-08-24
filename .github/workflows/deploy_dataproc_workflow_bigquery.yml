@@ -1,6 +1,8 @@
 name: Deploy Dataproc WorkflowTemplate for big query ingestion and Create a Schedule to run it
 
 env:
+    REGION: us-east1
+    ZONE: us-east1-b
     DATAPROC_CLUSTER_NAME: dataproc-bigdata-multi-node-cluster
     DATAPROC_WORKER_TYPE: n2-standard-2
     DATAPROC_MASTER_TYPE: n2-standard-2
