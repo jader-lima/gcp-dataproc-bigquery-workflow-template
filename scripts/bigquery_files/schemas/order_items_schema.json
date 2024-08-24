@@ -1,0 +1,68 @@
+[
+    {
+      "name": "order_status",
+      "type": "STRING",
+      "mode": "NULLABLE"
+    },
+    {
+      "name": "order_id",
+      "type": "STRING",
+      "mode": "NULLABLE"
+    },
+    {
+      "name": "order_item_id",
+      "type": "STRING",
+      "mode": "NULLABLE"
+    },
+    {
+      "name": "customer_id",
+      "type": "STRING",
+      "mode": "NULLABLE"
+    },
+    {
+      "name": "product_id",
+      "type": "STRING",
+      "mode": "NULLABLE"
+    },
+    {
+      "name": "seller_id",
+      "type": "STRING",
+      "mode": "NULLABLE"
+    },
+    {
+      "name": "order_purchase_timestamp",
+      "type": "STRING",
+      "mode": "NULLABLE"
+    },
+    {
+      "name": "order_delivered_customer_date",
+      "type": "STRING",
+      "mode": "NULLABLE"
+    },
+    {
+      "name": "order_estimated_delivery_date",
+      "type": "STRING",
+      "mode": "NULLABLE"
+    },
+    {
+      "name": "price",
+      "type": "FLOAT",
+      "mode": "NULLABLE"
+    },
+    {
+      "name": "freight_value",
+      "type": "FLOAT",
+      "mode": "NULLABLE"
+    },
+    {
+      "name": "order_items_count",
+      "type": "INTEGER",
+      "mode": "NULLABLE"
+    },
+    {
+      "name": "datePartition",
+      "type": "DATE",
+      "mode": "NULLABLE"
+    }
+  ]
+  
