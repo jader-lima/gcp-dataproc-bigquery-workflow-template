@@ -15,8 +15,6 @@ env:
     DATAPROC_COMPONENTS: JUPYTER
     BIGQUERY_DATASET: olist
     BIGQUERY_TABLE_ORDER_ITEMS: order_items_report
-
-
     BRONZE_DATALAKE_FILES: bronze
     TRANSIENT_DATALAKE_FILES: transient
     BUCKET_DATALAKE_FOLDER: transient
@@ -31,12 +29,9 @@ env:
     APP_NAME: 'countries_ingestion_csv_to_delta'
     PYSPARK_INGESTION_SCRIPT: ingestion_csv_to_delta.py
     PYSPARK_ENRICHMENT_SCRIPT_ORDER_ITENS: order_order_items_to_bigquery.py
-    SUBJECT: olist
     TIME_PARTITION_FIELD: datePartition
-
     FILE1: orders
     FILE2: order_items
-
     SUBJECT : olist
     STEP1 : order
     STEP2 : order_items
