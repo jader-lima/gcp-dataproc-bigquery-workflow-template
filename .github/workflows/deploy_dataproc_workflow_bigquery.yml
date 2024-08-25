@@ -40,7 +40,7 @@ env:
     STEP2 : order_items
     STEP3 : order_items_report
     TIME_ZONE : America/Sao_Paulo
-    SCHEDULE : "15 13 * * *"
+    SCHEDULE : "00 12 * * *"
     SCHEDULE_NAME : schedule_olist_etl
     SERVICE_ACCOUNT_NAME : account-dataproc-bq-workflow
     CUSTOM_ROLE : DataProcBigQueryWorkflowCustomRole
@@ -349,7 +349,7 @@ jobs:
               --jars ${JARS_PATH} \
               -- --app_name=${{ env.APP_NAME }}${{ env.STEP3 }} --bronze_orders_zone=gs://${BRONZE_ORDERS} \
               --bronze_orders_items_zone=gs://${BRONZE_ORDER_ITEMS} \
-              --bigquery_table=gs://${TABLE_NAME_ORDER_ITEMS} \
+              --bigquery_table=${TABLE_NAME_ORDER_ITEMS} \
               --temp_bucket=${BIG_QUERY_TEMP} 
 
             fi
