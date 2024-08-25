@@ -15,7 +15,7 @@ env:
     DATAPROC_MASTER_BOOT_DISK_TYPE: pd-balanced
     DATAPROC_WORKER_BOOT_DISK_TYPE: pd-balanced
     DATAPROC_COMPONENTS: JUPYTER
-    DATAPROC_WORKFLOW_NAME: departments_olist_order_items
+    DATAPROC_WORKFLOW_NAME: report_olist_order_items
     BIGQUERY_DATASET: olist
     BIGQUERY_TABLE_ORDER_ITEMS: order_items_report
     BRONZE_DATALAKE_FILES: bronze
@@ -40,7 +40,7 @@ env:
     STEP2 : order_items
     STEP3 : order_items_report
     TIME_ZONE : America/Sao_Paulo
-    SCHEDULE : "20 13 * * *"
+    SCHEDULE : "15 13 * * *"
     SCHEDULE_NAME : schedule_olist_etl
     SERVICE_ACCOUNT_NAME : account-dataproc-bq-workflow
     CUSTOM_ROLE : DataProcBigQueryWorkflowCustomRole
@@ -114,11 +114,11 @@ jobs:
     # Step to Create GCP Bucket 
     - name: Create Google Cloud Storage - big query temp files
       run: |-
-        if ! gsutil ls -p ${{ secrets.PROJECT_ID }} gs://${{ secrets.GCP_BUCKET_BIGQUERY_TEMP }} &> /dev/null; \
+        if ! gsutil ls -p ${{ secrets.PROJECT_ID }} gs://${{ secrets.GCP_BUCKET_TEMP_BIGQUERY }} &> /dev/null; \
           then \
-            gcloud storage buckets create gs://${{ secrets.GCP_BUCKET_BIGQUERY_TEMP }} --default-storage-class=nearline --location=${{ env.REGION }}
+            gcloud storage buckets create gs://${{ secrets.GCP_BUCKET_TEMP_BIGQUERY }} --default-storage-class=nearline --location=${{ env.REGION }}
           else
-            echo "Cloud Storage : gs://${{ secrets.GCP_BUCKET_BIGQUERY_TEMP }}  already exists" ! 
+            echo "Cloud Storage : gs://${{ secrets.GCP_BUCKET_TEMP_BIGQUERY }}  already exists" ! 
           fi
 
     # Step to Upload the file to GCP Bucket - transient files
