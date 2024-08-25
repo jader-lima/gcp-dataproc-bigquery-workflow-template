@@ -350,7 +350,7 @@ jobs:
               -- --app_name=${{ env.APP_NAME }}${{ env.STEP3 }} --bronze_orders_zone=gs://${BRONZE_ORDERS} \
               --bronze_orders_items_zone=gs://${BRONZE_ORDER_ITEMS} \
               --bigquery_table=gs://${TABLE_NAME_ORDER_ITEMS} \
-              --temp_bucket=gs://${BIG_QUERY_TEMP} 
+              --temp_bucket=${BIG_QUERY_TEMP} 
 
             fi
         else
