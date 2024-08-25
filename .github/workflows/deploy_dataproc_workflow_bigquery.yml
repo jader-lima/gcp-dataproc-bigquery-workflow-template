@@ -204,10 +204,12 @@ jobs:
         echo " contador $c "
         if [ $c == 0 ]; then
           echo "Creating table named : $table for Dataset ${{ env.BIGQUERY_DATASET}} " !
-          bq mk --table $TABLE_NAME_ORDER_ITEMS \
+         
+          bq mk --table \
           --time_partitioning_field ${{ env.TIME_PARTITION_FIELD}} \
-          ./scripts/bigquery_files/schemas/schemas/myschema.json 
-          
+          $TABLE_NAME_ORDER_ITEMS \
+          ./scripts/bigquery_files/schemas/order_items_schema.json
+
           
         fi
 
