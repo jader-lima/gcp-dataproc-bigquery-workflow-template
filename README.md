@@ -2,7 +2,7 @@
 
 ## Overview
 
-This project is designed to facilitate the ingestion of data from Google Cloud Storage into BigQuery using Apache Hadoop and PySpark on Google Dataproc. Furthermore, it utilizes Google Cloud Scheduler for automated execution and GitHub Actions for seamless deployment. 
+This project is designed to facilitate the ingestion of data from Google Cloud Storage into BigQuery using Apache PySpark on Google Dataproc. Furthermore, it utilizes Google Cloud Scheduler for automated execution and GitHub Actions for seamless deployment. 
 
 ## Table of Contents
 
