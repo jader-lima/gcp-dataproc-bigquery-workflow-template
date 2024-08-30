@@ -176,8 +176,11 @@ jobs:
     - name: Create Big Query Dataset
       run: |-  
         if ! bq ls --project_id ${{ secrets.PROJECT_ID}} -a | grep -w ${{ env.BIGQUERY_DATASET}} &> /dev/null; \
-          then \
-            gcloud dataproc workflow-templates create ${{ env.DATAPROC_WORKFLOW_NAME }} --region ${{ env.REGION }}
+          then 
+
+            bq --location=${{ env.REGION }} mk \
+          --default_table_expiration 0 \
+          --dataset ${{ env.BIGQUERY_DATASET }}
 
           else
             echo "Big Query Dataset : ${{ env.BIGQUERY_DATASET }} already exists" ! 
