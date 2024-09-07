@@ -40,7 +40,7 @@ env:
     STEP2 : order_items
     STEP3 : order_items_report
     TIME_ZONE : America/Sao_Paulo
-    SCHEDULE : "00 12 * * *"
+    SCHEDULE : "30 13 * * *"
     SCHEDULE_NAME : schedule_olist_etl
     SERVICE_ACCOUNT_NAME : account-dataproc-bq-workflow
     CUSTOM_ROLE : DataProcBigQueryWorkflowCustomRole
